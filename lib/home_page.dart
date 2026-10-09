@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -17,14 +16,37 @@ class HomePage extends StatelessWidget {
           IconButton(onPressed: () {}, icon: Icon(Icons.person)),
         ],
       ),
-      body: Text(
-        "Hello Flutter",
-        style: GoogleFonts.lobster(
-          textStyle: TextStyle(
-            fontSize: 30,
-            color: const Color.fromARGB(255, 119, 134, 177),
+      body: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 30, 0),
+            child: TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+                side: BorderSide(color: Colors.lightGreen),
+                elevation: 2,
+                shadowColor: Colors.amber,
+                fixedSize: Size(100, 50),
+              ),
+              child: Text("Red"),
+            ),
           ),
-        ),
+          OutlinedButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.green,
+              foregroundColor: Colors.white,
+              side: BorderSide(color: Colors.red),
+              elevation: 10,
+              shadowColor: Colors.red,
+            ),
+            child: Text("Green"),
+          ),
+          IconButton(onPressed: () {}, icon: Icon(Icons.login)),
+          ElevatedButton(onPressed: () {}, child: Text("Blue")),
+        ],
       ),
     );
   }
