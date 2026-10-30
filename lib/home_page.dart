@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_64a/container_page.dart';
+import 'package:project_64a/image_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,20 +23,30 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 10, 30, 0),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ContainerPage()),
+                );
+              },
               style: TextButton.styleFrom(
                 backgroundColor: Colors.red,
                 foregroundColor: Colors.white,
                 side: BorderSide(color: Colors.lightGreen),
                 elevation: 2,
                 shadowColor: Colors.amber,
-                fixedSize: Size(100, 50),
+                fixedSize: Size(150, 30),
               ),
-              child: Text("Red"),
+              child: Text("ContainerPage"),
             ),
           ),
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => ImagePage()),
+              );
+            },
             style: TextButton.styleFrom(
               backgroundColor: Colors.green,
               foregroundColor: Colors.white,
@@ -42,10 +54,17 @@ class HomePage extends StatelessWidget {
               elevation: 10,
               shadowColor: Colors.red,
             ),
-            child: Text("Green"),
+            child: Text("ImagePage"),
           ),
           IconButton(onPressed: () {}, icon: Icon(Icons.login)),
-          ElevatedButton(onPressed: () {}, child: Text("Blue")),
+          ElevatedButton(
+            onPressed: () {
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text("Blue Button Clicked!!")));
+            },
+            child: Text("Blue"),
+          ),
         ],
       ),
     );
